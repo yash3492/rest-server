@@ -4,6 +4,7 @@ const correlator = require('express-correlation-id');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const express = require('express');
+const helmet = require('helmet');
 
 const loadConfig = () => {
     let result = dotenv.config();
@@ -37,6 +38,8 @@ let Index = class RestExpress {
     }
 
     pre () {
+        // enable xssFilter, hide powered by header, Disable Caching etc.
+        this.app.use(helmet({ noCache: true }));
         this.app.use(cors());
         this.app.set('trust proxy', true);
         this.app.use(compression({ threshold: 1 }));
