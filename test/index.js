@@ -14,15 +14,6 @@ try{
         })
     });
 
-    let router2 = server.router();
-    router2.get('/three', (req, res) => {
-        res.send({
-            now: (Date.now()),
-            three: true
-        })
-    });
-
-
     server.pre();
 
     server.use((req, res, next) => {
@@ -34,7 +25,7 @@ try{
     }, (req, res, next) => {
         console.log('Custom3');
         next();
-    }, router2);
+    });
 
     server.use('/prefix', router);
 
