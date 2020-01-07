@@ -20,6 +20,7 @@ let Index = class RestExpress {
      * @param DEFAULT_ERROR_MESSAGE
      * @param logger
      * @param ingestException
+     * @param PORT
      */
     constructor ({ BODY_SIZE_LIMIT = '100kb', DEFAULT_ERROR_MESSAGE = 'Internal Server Error', logger = console, ingestException = () => {}, PORT = 4000 } = {}) {
         this.BODY_SIZE_LIMIT = BODY_SIZE_LIMIT;
