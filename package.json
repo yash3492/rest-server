@@ -1,5 +1,5 @@
 {
-  "name": "@yash-patel/rest-server",
+  "name": "@yash3492/rest-server",
   "version": "1.0.0",
   "description": "boilerplate for rest API server",
   "main": "index.js",
@@ -9,6 +9,10 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yash3492/rest-server.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "always-auth": true
   },
   "keywords": [],
   "author": "Sandeep Patel",
