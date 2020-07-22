@@ -2,7 +2,7 @@
 try{
     let {loadConfig, RestServer} = require('./..');
 
-    const config = {PORT: 5000} || loadConfig();
+    const config = loadConfig({PORT: 5000});
     const server = new RestServer(config);
 
 

@@ -5,13 +5,14 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const express = require('express');
 const helmet = require('helmet');
+const noCache = require('nocache');
 
-const loadConfig = () => {
+const loadConfig = (defaultValue = {}) => {
     let result = dotenv.config();
     if (result.error) {
         throw result.error;
     }
-    return process.env || {};
+    return Object.assign(process.env, defaultValue);
 };
 
 let Index = class RestExpress {
@@ -39,7 +40,8 @@ let Index = class RestExpress {
 
     pre () {
         // enable xssFilter, hide powered by header, Disable Caching etc.
-        this.app.use(helmet({ noCache: true }));
+        this.app.use(helmet());
+        this.app.use(noCache());
         this.app.use(cors());
         this.app.set('trust proxy', true);
         this.app.use(compression({ threshold: 1 }));
@@ -56,7 +58,7 @@ let Index = class RestExpress {
     post () {
         let logger = this.logger;
         this.app.all('*', function (req, res, next) {
-            logger.info('req.data', req.data);
+            logger.info('404 on', req.path);
             let err = new Error();
             err.status = 404;
             next(err);
