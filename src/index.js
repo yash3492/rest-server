@@ -57,13 +57,12 @@ let Index = class RestExpress {
 
     post () {
         let logger = this.logger;
-        this.app.all('*', function (req, res, next) {
+        this.app.all('/*path', function (req, res, next) {
             logger.info('404 on', req.path);
             let err = new Error();
             err.status = 404;
             next(err);
         });
-
         this.app.use(function (err, req, res, next) {
             if (err.status !== 404) {
                 return next(err);

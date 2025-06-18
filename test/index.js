@@ -1,6 +1,6 @@
 
 try{
-    let {loadConfig, RestServer} = require('./..');
+    let {loadConfig, RestServer} = require('./../index');
 
     const config = loadConfig({PORT: 5000});
     const server = new RestServer(config);

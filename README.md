@@ -1,5 +1,7 @@
 # rest-server
 ---
+### Requirements
++ Node.js v22 or higher
 
 #### Usage
 + Install package `npm install @yash3492/rest-server`
