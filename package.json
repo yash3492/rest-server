@@ -1,6 +1,6 @@
 {
   "name": "@yash3492/rest-server",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "boilerplate for rest API server",
   "main": "index.js",
   "scripts": {
